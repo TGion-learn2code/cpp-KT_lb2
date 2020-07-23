@@ -26,7 +26,7 @@ int main(int argc, const char* argv[]) {
 	char c = 'k';
 	cout << "Zeichen c = " << c << endl;
 
-	string s = "s";
+	string s = "TGion";
 	cout << "String s = " << s << endl;
 
 	cout << "//==============================================================================" << endl;
@@ -36,10 +36,12 @@ int main(int argc, const char* argv[]) {
 	bool hat_zwei_argumente;
 	int a, b;
 
+	// check if we got at least two arguments from main and write value to variable
 	hat_zwei_argumente = (argc > 2);
 
 	if (hat_zwei_argumente) {
 
+		// use stoi to convert argument (char *) to int
 		a = stoi(argv[1]);
 		b = stoi(argv[2]);
 
