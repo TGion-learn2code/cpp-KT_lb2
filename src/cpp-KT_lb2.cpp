@@ -13,60 +13,68 @@ using namespace std;
 
 int main(int argc, const char* argv[]) {
 
+
+
 	cout << "//==============================================================================" << endl;
 	cout << "// Aufgabe 1" << endl;
 	cout << "//==============================================================================" << endl;
 
+	// Integer
 	int i = 10;
 	cout << "Ganzahl i = " << i << endl;
 
+	// Double
 	double d = 33.3;
 	cout << "Fließkommazahl d = " << d << endl;
 
+	// Char
 	char c = 'k';
 	cout << "Zeichen c = " << c << endl;
 
+	// String
 	string s = "TGion";
 	cout << "String s = " << s << endl;
+
+
 
 	cout << "//==============================================================================" << endl;
 	cout << "// Aufgabe 2" << endl;
 	cout << "//==============================================================================" << endl;
 
 	bool hat_zwei_argumente;
-	int a, b;
+	int a = 10;
+	int b = 20;
 
-	// check if we got at least two arguments from main and write value to variable
+	// Check if we have at least two arguments (argc > 2) given at start and write values to integer a and b
 	hat_zwei_argumente = (argc > 2);
 
 	if (hat_zwei_argumente) {
 
-		// use stoi to convert argument (char *) to int
+		// Use stoi(char *) to convert argument to integer
 		a = stoi(argv[1]);
 		b = stoi(argv[2]);
 
 	}
-	else {
-		a = 10;
-		b = 20;
-	}
 
 	cout << "Zahl #1: " << a << " Zahl #2: " << b << endl;
+
+
 
 	cout << "//==============================================================================" << endl;
 	cout << "// Aufgabe 3" << endl;
 	cout << "//==============================================================================" << endl;
 
 	int int_bot, int_top, int_skip;
-	bool again = true;
 	int block = 0;
+	bool again = true;
 
-	// Number of nunbers before cout << endl;
+	// Count "numbers" of numbers before we force a new line;
+	// Just to increase readability
 	const int block_size = 20;
 
 	while (again)
 	{
-		// user inputs range of numbers
+		// User inputs range of numbers and how many numbers to skip
 		cout << "Untere Grenze: ";
 		cin >> int_bot;
 
@@ -76,41 +84,43 @@ int main(int argc, const char* argv[]) {
 		cout << "Sprung: ";
 		cin >> int_skip;
 
-		// if bottom is greater than top, count backwards
+		// If bottom is greater than top, count backwards
 		if (int_bot > int_top) {
 			for (; int_bot >= int_top; int_bot = int_bot - int_skip) {
 
-						// print numbers to console
-						cout << int_bot << " ";
+				// Print numbers to console
+				cout << int_bot << " ";
 
-						// new line to structure output
-						block++;
-						if (block == block_size) {
-							cout << endl;
-							block = 0;
-						}
-					}
+				// New line to structure output
+				block++;
+				if (block == block_size) {
+					cout << endl;
+					block = 0;
+				}
+			}
 		}
-		// if top is greater than bottom count normally
+
+		// If top is greater than bottom count normally
 		else {
 			for (; int_bot <= int_top; int_bot = int_bot + int_skip) {
 
-						// print numbers to console
-						cout << int_bot << " ";
+				// Print numbers to console
+				cout << int_bot << " ";
 
-						// new line to structure output
-						block++;
-						if (block == block_size) {
-							cout << endl;
-							block = 0;
-						}
-					}
+				// New line to structure output
+				block++;
+				if (block == block_size) {
+					cout << endl;
+					block = 0;
+				}
+			}
 		}
-
 
 		block = 0;
 
 		cout << endl;
+
+		// Ask user if he/she wants to repeat
 		cout << "Wiederholen? (0 = nein / 1 = ja): ";
 		cin >> again;
 	}
